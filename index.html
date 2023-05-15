@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relógio Digital</title>
+  <style>
+    body {
+      background-color: black;
+      color: #0F0;
+      text-align: center;
+      font-size: 5rem;
+      margin: 0;
+      padding-top: 20vh;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      var time = hours + ":" + minutes + ":" + seconds;
+
+      document.body.innerText = time;
+
+      setTimeout(updateClock, 1000);
+    }
+
+    // Iniciar o relógio quando a página estiver carregada
+    window.onload = function() {
+      updateClock();
+    };
+  </script>
+</body>
+</html>
